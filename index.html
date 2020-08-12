@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#box {
+				width: 100%;
+				height: 900px;
+				background: url(img/bigBg.jpg) no-repeat;
+				background-size: cover;
+				background-position: 0 -150px;
+			}
+			p {
+				padding: 100px 0;
+				margin-left: 100px;
+				width: 50px;
+				font-size: 50px;
+				position: absolute;
+				animation: piao 8s ease infinite;
+				transform-origin: 0% 0%;
+			}
+			img {
+				position: absolute;
+			}
+			#xinfeng {
+				width: 300px;
+				left: 200px;
+				top: 100px;
+				animation: piao 8s ease infinite;
+				transform-origin: 0% 0%;
+			}
+			@keyframes piao{
+				from{}
+				50% {
+					transform: rotate(45deg);
+				}
+				to{
+					transform: rotate(0);
+				}
+			}
+			#music {
+				left: 1000px;
+				animation: zhuan 4s linear infinite;
+			}
+			/*动画*/
+			@keyframes zhuan{
+				from{}
+				50% {
+					transform: rotate(180deg);
+				}
+				75% {
+					transform: rotate(270deg);
+				}
+				to{
+					transform: rotate(360deg);
+				}
+			}
+			audio {
+				/*隐藏audio元素，通过js中点击事件控制音乐的播放*/
+				visibility: hidden;
+			}
+		</style>
+		<script type="text/javascript">
+			onload = function () {
+				var music = document.getElementById('music');
+				var xinfeng = document.getElementById('xinfeng');
+				var yinyue = document.getElementById('yinyue');
+				music.onclick = function () {
+					if(yinyue.paused) {			//yinyue.paused为音乐的状态，true为暂停，false为播放
+						yinyue.play();
+					} else {
+						yinyue.pause();
+					}
+					
+				}
+				xinfeng.onclick = function () {
+					//点击事件中实现页面跳转
+					location.href = 'envelope.html';
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<p>女神亲启</p>
+			<img src="img/musicBtn.png" alt="" id="music">
+			<img src="img/envelope.png" alt="" id="xinfeng">
+			<audio src="music.mp3" autoplay controls id="yinyue"> </audio>
+			<a href=""></a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		html,body{
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			/* 图片左右移动65% */
+			background: url(img/bg.jpg) 65%;
+			background-size: 150% 150%;
+		}
+		#content{
+			position: absolute;
+			width: 25%;
+			height: 20%;
+			/* background-color: #00FFFF; */
+			left: 15%;
+			top: 35%;
+			transform: rotate(-30deg);
+		}
+		#yes {
+			left: 200px;
+			top: 480px;
+			font-size: 30px;
+			color: skyblue;
+			position: absolute;
+		}
+	</style>
+	<script>
+		onload = function () {
+			var content = document.getElementById('content');
+			var yes = document.getElementById('yes');
+			var aa = '今天我，寒夜里看雪飘过，怀着冷却了的心窝飘远方，风雨里追赶，雾里分不清踪影，天空海阔你与我，可会变！';
+			var i = 0;
+			//定时器
+			var time = setInterval(function () {
+					content.innerText += aa[i];
+					i++;
+					console.log(i);
+					if(i > aa.length - 1) {
+						clearInterval(time);
+					}
+			},300);
+			//点击事件
+			yes.onclick = function () {
+				alert("遇见你是我最大的幸运");
+			}
+		}
+		
+	</script>
+	<body>
+		<!-- 表白文字 -->
+		<div id="content"></div>
+		<p id="yes">我愿意</p>
+	</body>
+</html>
